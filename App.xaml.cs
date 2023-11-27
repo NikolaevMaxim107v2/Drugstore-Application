@@ -1,4 +1,5 @@
-﻿using System.Configuration;
+﻿using Drugstore_Application.ViewModel;
+using System.Configuration;
 using System.Data;
 using System.Windows;
 
@@ -9,6 +10,15 @@ namespace Drugstore_Application
     /// </summary>
     public partial class App : Application
     {
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            MainWindow = new MainWindow()
+            {
+                DataContext = new MainVM()
+            };
+            MainWindow.Show();
+            base.OnStartup(e);
+        }
     }
 
 }

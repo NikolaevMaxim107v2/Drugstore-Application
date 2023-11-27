@@ -1,11 +1,13 @@
-﻿<Window x:Class="Drugstore_Application.View.LogIn"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Drugstore_Application.View"
-        mc:Ignorable="d"
-        Title="Авторизация" MinHeight="250px" MinWidth="300px" MaxHeight="250px" MaxWidth="300px" WindowStartupLocation="CenterScreen">
+﻿<Page x:Class="Drugstore_Application.View.LogInPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Drugstore_Application.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="750" d:DesignWidth="900"
+      Title="LogInPage">
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -20,4 +22,4 @@
             <Button FontSize="18px" Content="Войти" Height="30px"  Margin="5px 5px 5px 5px" Command="{Binding LogIn}"/>
         </StackPanel>
     </Grid>
-</Window>
+</Page>

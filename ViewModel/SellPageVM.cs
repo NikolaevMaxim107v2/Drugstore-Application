@@ -4,11 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Drugstore_Application.Services
+namespace Drugstore_Application.ViewModel
 {
-    public interface IWindowService
+    internal class SellPageVM
     {
-        void OpenWindow();
-        void CloseWindow();
     }
 }

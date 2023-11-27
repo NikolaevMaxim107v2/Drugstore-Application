@@ -10,7 +10,6 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Drugstore_Application.Model;
 using Drugstore_Application.ViewModel;
-using Drugstore_Application.Services;
 
 namespace Drugstore_Application
 {
@@ -19,10 +18,6 @@ namespace Drugstore_Application
         public MainWindow()
         {
             InitializeComponent();
-            var windowService = new ToMainWindowService();
-            //var windowService1 = new ToAddWindowService();
-            //var windowService2 = new ToChangeWindowService();
-            DataContext = new MainVM(windowService);//, windowService1, windowService2);
         }
     }
 }

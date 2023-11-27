@@ -1,5 +1,4 @@
-﻿using Drugstore_Application.ViewModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,16 +10,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Drugstore_Application.View
 {
     /// <summary>
-    /// Логика взаимодействия для DrugChange.xaml
+    /// Логика взаимодействия для LogInPage.xaml
     /// </summary>
-    public partial class DrugChange : Window
+    public partial class LogInPage : Page
     {
-        public DrugChange()
+        public LogInPage()
         {
             InitializeComponent();
         }
