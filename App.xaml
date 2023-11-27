@@ -4,6 +4,6 @@
              xmlns:local="clr-namespace:Drugstore_Application"
              StartupUri="View/LogIn.xaml">
     <Application.Resources>
-         
+
     </Application.Resources>
 </Application>
