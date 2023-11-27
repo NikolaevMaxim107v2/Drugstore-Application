@@ -308,6 +308,7 @@ namespace Drugstore_Application.ViewModel
                 new (CurTransactionId+3, "Но-шпа таб., 40 мг, 64 шт.", 3, 1179, "Продажа"),
                 new (CurTransactionId+4, "Стрепсилс таб. д/рассас., 24 шт., лимон+мед", 3, 0, "Списание"),
             };
+            CurTransactionId+=4;
         }
     }
 }
