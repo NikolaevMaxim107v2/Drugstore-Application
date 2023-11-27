@@ -53,7 +53,7 @@ namespace Drugstore_Application.ViewModel
         //public ICommand CloseWindowCommand2 { get; set; }
         //public ICommand OpenWindowCommand2 { get; set; }
 
-        public double balance = 50150.36;
+        public double balance = 50150;
         public int CurDrugId = 0;
         public int CurTransactionId = 0;
 
@@ -240,12 +240,12 @@ namespace Drugstore_Application.ViewModel
                             ErrorBox.BuyDrugCountError();
                         else
                         {
-                            if ((balance - buyEliminateCount * selectedDrug.Buyprice) > 0)
+                            if ((balance - buyEliminateCount * selectedDrug.Buyprice) >= 0)
                             {
                                 selectedDrug.Count = selectedDrug.Count + buyEliminateCount;
                                 Balance = balance - (buyEliminateCount * selectedDrug.Buyprice);
                                 CurTransactionId++;
-                                TransactionsList.Add(new(CurTransactionId, selectedDrug.Name, buyEliminateCount, Math.Round(-(selectedDrug.Price*buyEliminateCount),2), "Покупка"));
+                                TransactionsList.Add(new(CurTransactionId, selectedDrug.Name, buyEliminateCount, Math.Round(-(selectedDrug.Buyprice*buyEliminateCount),2), "Покупка"));
                             }
                             else
                             {
@@ -311,13 +311,13 @@ namespace Drugstore_Application.ViewModel
             //_windowService2 = windowService2;
             DrugsList = new ObservableCollection<Drug>
             {
-                new (CurDrugId, "name", "symptoms", 1, 50.12, 20.06),
-                new (CurDrugId+1, "name2", "symptoms2", 50, 150.21, 30.07)
+                new (CurDrugId, "name", "symptoms", 1, 50, 20),
+                new (CurDrugId+1, "name2", "symptoms2", 50, 150, 75)
             };
             CurDrugId++;
             TransactionsList = new ObservableCollection<Transaction>
             {
-                new (CurTransactionId, "name", 3, 150.36, "Продажа")
+                new (CurTransactionId, "name", 3, 150, "Продажа")
             };
         }
     }
