@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Drugstore_Application"
         mc:Ignorable="d"
-        Title="Drugstore Application" WindowStartupLocation="CenterScreen" MinHeight="500" MinWidth="900" MaxHeight="750" MaxWidth="900">
+        Title="Drugstore Application" WindowStartupLocation="CenterScreen" MinHeight="750" MinWidth="900" MaxHeight="750" MaxWidth="900">
     <Grid>
         <!--Определение строк и столбцов-->
         <Grid.ColumnDefinitions>
@@ -30,9 +30,9 @@
         <Border Grid.Row ="0" Grid.Column="3" Grid.ColumnSpan="2" Margin="5px 5px 5px 5px" Background="#ca9aec"/>
 
         <!--Поле поиска медикаментов-->
-        <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Margin="0px 5px 0px 0px">
+        <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Margin="0px 5px 0px 0px" VerticalAlignment="Center">
             <Label Grid.Column="0" Grid.Row="0" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center">Поиск медикаментов</Label>
-            <TextBox Margin="15px 0px 15px 0px" VerticalAlignment="Center" Text="{Binding TextSearchDrug, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+            <TextBox Margin="15px 0px 15px 0px" Text="{Binding TextSearchDrug, UpdateSourceTrigger=PropertyChanged}"></TextBox>
         </StackPanel>
 
         <!--Списки-->
@@ -57,7 +57,7 @@
                     <GridViewColumn Header="ID" Width="50px" DisplayMemberBinding="{Binding Path=Id, UpdateSourceTrigger=PropertyChanged}"/>
                     <GridViewColumn Header="Название" Width="90px" DisplayMemberBinding="{Binding Path=Name, UpdateSourceTrigger=PropertyChanged}"/>
                     <GridViewColumn Header="Количество, штук" Width="110px" DisplayMemberBinding="{Binding Path=Count, UpdateSourceTrigger=PropertyChanged}"/>
-                    <GridViewColumn Header="Цена, рублей" Width="80px" DisplayMemberBinding="{Binding Path=Price, UpdateSourceTrigger=PropertyChanged}"/>
+                    <GridViewColumn Header="Сумма, рублей" Width="90px" DisplayMemberBinding="{Binding Path=Price, UpdateSourceTrigger=PropertyChanged}"/>
                     <GridViewColumn Header="Транзакция" Width="85px" DisplayMemberBinding="{Binding Path=Type, UpdateSourceTrigger=PropertyChanged}"/>
                 </GridView>
             </ListView.View>
