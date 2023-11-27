@@ -26,32 +26,21 @@ namespace Drugstore_Application.ViewModel
         private int addCount;
         private double addPrice;
         private double addBuyprice;
-        private int buyEliminateCount;
-        //private string newName;
-        //private string newSymptoms;
-        //private int newCount;
-        //private double newPrice;
-        //private double newBuyprice;
+        private int buySellEliminateCount;
         private Drug selectedDrug;
         private IWindowService _windowService;
-        //private IWindowService _windowService1;
-        //private IWindowService _windowService2;
         private RelayCommand removeDrug;
         private RelayCommand addDrug;
         private RelayCommand buyDrug;
         private RelayCommand eliminateDrug;
+        private RelayCommand sellDrug;
         private RelayCommand logIn;
-        private RelayCommand addWindow;
 
         //Публичные переменные
         public ObservableCollection<Drug> DrugsList { get; set; }
         public ObservableCollection<Transaction> TransactionsList { get; set; }
         public List<string> TransactionTypes;
         public ICommand OpenWindowCommand { get; set; }
-        //public ICommand CloseWindowCommand1 { get; set; }
-        //public ICommand OpenWindowCommand1 { get; set; }
-        //public ICommand CloseWindowCommand2 { get; set; }
-        //public ICommand OpenWindowCommand2 { get; set; }
 
         public double balance = 50150;
         public int CurDrugId = 0;
@@ -68,40 +57,15 @@ namespace Drugstore_Application.ViewModel
             _windowService.OpenWindow();
         }
 
-        //private void OnOpenWindow1()
-        //{
-        //    _windowService1.OpenWindow();
-        //}
-
-        //private void OnCloseWindow1()
-        //{
-        //    _windowService1.CloseWindow();
-        //}
-
-        //private void OnOpenWindow2()
-        //{
-        //    _windowService2.OpenWindow();
-        //}
-
-        //private void OnCloseWindow2()
-        //{
-        //    _windowService2.CloseWindow();
-        //}
-
         public double Balance { get { return Math.Round(balance,2); } set { balance = Convert.ToDouble(value); OnPropertyChanged(nameof(Balance)); } }
         public string Password { get => password; set { password = value; OnPropertyChanged(nameof(Password)); } }
         public string Login { get => login; set { login = value; OnPropertyChanged(nameof(Login)); } }
-        //public string NewName { get => newName; set { newName = value; OnPropertyChanged(nameof(NewName)); } }
-        //public string NewSymptoms { get => newSymptoms; set { newSymptoms = value; OnPropertyChanged(nameof(NewSymptoms)); } }
-        //public int NewCount { get => newCount; set { newCount = value; OnPropertyChanged(nameof(NewCount)); } }
-        //public double NewPrice { get => newPrice; set { newPrice = value; OnPropertyChanged(nameof(NewPrice)); } }
-        //public double NewBuyprice { get => newBuyprice; set { newBuyprice = value; OnPropertyChanged(nameof(NewBuyprice)); } }
         public string AddName { get => addName; set { addName = value; OnPropertyChanged(nameof(AddName)); } }
         public string AddSymptoms { get => addSymptoms; set { addSymptoms = value; OnPropertyChanged(nameof(AddSymptoms)); } }
         public int AddCount { get => addCount; set { addCount = value; OnPropertyChanged(nameof(AddCount)); } }
         public double AddPrice { get => addPrice; set { addPrice = value; OnPropertyChanged(nameof(AddPrice)); } }
         public double AddBuyprice { get => addBuyprice; set { addBuyprice = value; OnPropertyChanged(nameof(AddBuyprice)); } }
-        public int BuyEliminateCount { get => buyEliminateCount;set { buyEliminateCount = value; OnPropertyChanged(nameof(BuyEliminateCount)); } }
+        public int BuySellEliminateCount { get => buySellEliminateCount;set { buySellEliminateCount = value; OnPropertyChanged(nameof(BuySellEliminateCount)); } }
 
         public string TextSearchDrug
         {
@@ -144,7 +108,7 @@ namespace Drugstore_Application.ViewModel
                         if (selectedDrug.Count>0)
                         {
                             CurTransactionId++;
-                            TransactionsList.Add(new(CurTransactionId, selectedDrug.Name, selectedDrug.Count,Math.Round(-(selectedDrug.Buyprice*selectedDrug.Count),2), "Списание"));
+                            TransactionsList.Add(new(CurTransactionId, selectedDrug.Name, selectedDrug.Count,0, "Списание"));
                         }
                         DrugsList.Remove(selectedDrug);
                         TextSearchDrug = null;
@@ -175,18 +139,6 @@ namespace Drugstore_Application.ViewModel
             }
         }
 
-        //public RelayCommand OpenAddWindow
-        //{
-        //    get
-        //    {
-        //        return addWindow ?? (addWindow = new RelayCommand(obj =>
-        //        {
-        //            OpenWindowCommand1 = new RelayCommand(obj => { OnOpenWindow1(); });
-        //            OpenWindowCommand1.Execute(true);
-        //        }));
-        //    }
-        //}
-
         public RelayCommand AddNewDrug
         {
             get
@@ -210,23 +162,9 @@ namespace Drugstore_Application.ViewModel
                     }
                     else
                         ErrorBox.NameError();
-
-                    //CloseAddWindow.Execute(true);
                 }));
             }
         }
-
-        //public RelayCommand CloseAddWindow
-        //{
-        //    get
-        //    {
-        //        return addWindow ?? (addWindow = new RelayCommand(obj =>
-        //        {
-        //            CloseWindowCommand1 = new RelayCommand(obj => { OnCloseWindow1(); });
-        //            CloseWindowCommand1.Execute(true);
-        //        }));
-        //    }
-        //}
 
         public RelayCommand BuyDrug
         {
@@ -236,16 +174,16 @@ namespace Drugstore_Application.ViewModel
                 {
                     if (selectedDrug != null)
                     {
-                        if (buyEliminateCount <= 0)
+                        if (buySellEliminateCount <= 0)
                             ErrorBox.BuyDrugCountError();
                         else
                         {
-                            if ((balance - buyEliminateCount * selectedDrug.Buyprice) >= 0)
+                            if ((balance - buySellEliminateCount * selectedDrug.Buyprice) >= 0)
                             {
-                                selectedDrug.Count = selectedDrug.Count + buyEliminateCount;
-                                Balance = balance - (buyEliminateCount * selectedDrug.Buyprice);
+                                selectedDrug.Count = selectedDrug.Count + buySellEliminateCount;
+                                Balance = balance - (buySellEliminateCount * selectedDrug.Buyprice);
                                 CurTransactionId++;
-                                TransactionsList.Add(new(CurTransactionId, selectedDrug.Name, buyEliminateCount, Math.Round(-(selectedDrug.Buyprice*buyEliminateCount),2), "Покупка"));
+                                TransactionsList.Add(new(CurTransactionId, selectedDrug.Name, buySellEliminateCount, Math.Round(-(selectedDrug.Buyprice*buySellEliminateCount),2), "Покупка"));
                             }
                             else
                             {
@@ -269,7 +207,7 @@ namespace Drugstore_Application.ViewModel
                 {
                     if (selectedDrug != null)
                     {
-                        if (buyEliminateCount <= 0)
+                        if (buySellEliminateCount <= 0)
                             ErrorBox.EliminateDrugCountError();
                         else
                         {
@@ -279,15 +217,15 @@ namespace Drugstore_Application.ViewModel
                             }
                             else
                             {
-                                if (buyEliminateCount > selectedDrug.Count)
+                                if (buySellEliminateCount > selectedDrug.Count)
                                 {
                                     ErrorBox.EliminateDrugCountError();
                                 }
                                 else
                                 {
-                                    selectedDrug.Count = selectedDrug.Count - buyEliminateCount;
+                                    selectedDrug.Count = selectedDrug.Count - buySellEliminateCount;
                                     CurTransactionId++;
-                                    TransactionsList.Add(new(CurTransactionId, selectedDrug.Name, buyEliminateCount, Math.Round(-(selectedDrug.Buyprice*buyEliminateCount),2), "Списание"));
+                                    TransactionsList.Add(new(CurTransactionId, selectedDrug.Name, buySellEliminateCount, 0, "Списание"));
                                 }
                                 
                             }
@@ -302,22 +240,73 @@ namespace Drugstore_Application.ViewModel
             }
         }
 
-        public MainVM(IWindowService windowService)//, IWindowService windowService1, IWindowService windowService2)
+        public RelayCommand SellDrug
+        {
+            get
+            {
+                return sellDrug ?? (sellDrug=new RelayCommand(obj=>
+                {
+                    if (selectedDrug!=null)
+                    {
+                        if (buySellEliminateCount <= 0)
+                            ErrorBox.EliminateDrugCountError();
+                        else
+                        {
+                            if (selectedDrug.Count == 0)
+                            {
+                                ErrorBox.DrugCountError();
+                            }
+                            else
+                            {
+                                if (buySellEliminateCount > selectedDrug.Count)
+                                {
+                                    ErrorBox.EliminateDrugCountError();
+                                }
+                                else
+                                {
+                                    selectedDrug.Count = selectedDrug.Count - buySellEliminateCount;
+                                    Balance = Balance + (buySellEliminateCount * selectedDrug.Price);
+                                    CurTransactionId++;
+                                    TransactionsList.Add(new(CurTransactionId, selectedDrug.Name, buySellEliminateCount, Math.Round((selectedDrug.Price * buySellEliminateCount), 2), "Продажа"));
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        ErrorBox.DrugSelectError();
+                    }
+                }));
+            }
+        }
+
+        public MainVM(IWindowService windowService)
         {
             login = "Логин";
             password = "Пароль";
             _windowService = windowService;
-            //_windowService1 = windowService1;
-            //_windowService2 = windowService2;
             DrugsList = new ObservableCollection<Drug>
             {
-                new (CurDrugId, "name", "symptoms", 1, 50, 20),
-                new (CurDrugId+1, "name2", "symptoms2", 50, 150, 75)
+                new (CurDrugId, "Циклоферон 150 мг таблетки 20 шт", "Грипп и острые респираторные заболевания, герпетическая инфекция", 35, 589, 245),
+                new (CurDrugId+1, "Золотая звезда бальзам мазь д/нар. прим.", "Головная боль, головокружение, насморк, укусы насекомых", 15, 179 , 89),
+                new (CurDrugId+2, "Стрепсилс таб. д/рассас., 24 шт., лимон+мед", "Болевой синдром воспалительных заболеваний полости рта и ЛОР-органов, " +
+                "боль в горле, инфекционно-воспалительные заболевания полости рта и глотки, ларингит, тонзиллит, фарингит", 7, 238 , 119),
+                new (CurDrugId+3, "Уголь активированный таб., 250 мг, 20 шт.", "Диспепсические явления, лечение пищевых токсикоинфекций (ПТИ), энтеросорбирующее" +
+                " средство для дезинтоксикации при экзо и эндогенных интоксикациях", 23, 34 , 17),
+                new (CurDrugId+4, "Тантум верде спрей д/мест. прим. дозир., 0.255 мг/доза, 30 мл", "Болевой синдром воспалительных заболеваний полости рта и ЛОР-органов," +
+                " гингивит, глоссит, инфекционно-воспалительные заболевания полости рта и глотки, калькулезное воспаление слюнных желез, кандидоз слизистой оболочки полости рта," +
+                " ларингит, пародонтоз, после лечения и удаления зубов, стоматит, тонзиллит, фарингит", 27, 459 , 229),
+                 new (CurDrugId+5, "Но-шпа таб., 40 мг, 64 шт.", "Головная боль, желудочно-кишечные спазмы, колит, первичная дисменорея, холангит, холецистит, цистит, энтероколит," +
+                 " язвенная болезнь желудка и двенадцатиперстной кишки", 17, 393, 196),
             };
-            CurDrugId++;
+            CurDrugId+=5;
             TransactionsList = new ObservableCollection<Transaction>
             {
-                new (CurTransactionId, "name", 3, 150, "Продажа")
+                new (CurTransactionId, "Тантум верде спрей д/мест. прим. дозир., 0.255 мг/доза, 30 мл", 3, 1377, "Продажа"),
+                new (CurTransactionId+1, "Золотая звезда бальзам мазь д/нар. прим.", 5, -895, "Покупка"),
+                new (CurTransactionId+2, "Уголь активированный таб., 250 мг, 20 шт.", 7, 0, "Списание"),
+                new (CurTransactionId+3, "Но-шпа таб., 40 мг, 64 шт.", 3, 1179, "Продажа"),
+                new (CurTransactionId+4, "Стрепсилс таб. д/рассас., 24 шт., лимон+мед", 3, 0, "Списание"),
             };
         }
     }

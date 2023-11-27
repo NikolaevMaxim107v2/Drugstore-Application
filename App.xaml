@@ -5,5 +5,8 @@
              StartupUri="View/LogIn.xaml">
     <Application.Resources>
 
+        <Style TargetType="Window">
+            <Setter Property="Icon" Value="Resources/Icon/icon2.ico" />
+        </Style>
     </Application.Resources>
 </Application>

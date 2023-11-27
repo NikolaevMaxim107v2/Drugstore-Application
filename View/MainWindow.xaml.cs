@@ -20,9 +20,7 @@ namespace Drugstore_Application
         {
             InitializeComponent();
             var windowService = new ToMainWindowService();
-            //var windowService1 = new ToAddWindowService();
-            //var windowService2 = new ToChangeWindowService();
-            DataContext = new MainVM(windowService);//, windowService1, windowService2);
+            DataContext = new MainVM(windowService);
         }
     }
 }
