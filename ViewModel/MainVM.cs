@@ -144,7 +144,7 @@ namespace Drugstore_Application.ViewModel
                         if (selectedDrug.Count>0)
                         {
                             CurTransactionId++;
-                            TransactionsList.Add(new(CurTransactionId, selectedDrug.Name, selectedDrug.Count,Math.Round(-(selectedDrug.Price*selectedDrug.Count),2), "Списание"));
+                            TransactionsList.Add(new(CurTransactionId, selectedDrug.Name, selectedDrug.Count,Math.Round(-(selectedDrug.Buyprice*selectedDrug.Count),2), "Списание"));
                         }
                         DrugsList.Remove(selectedDrug);
                         TextSearchDrug = null;
@@ -287,7 +287,7 @@ namespace Drugstore_Application.ViewModel
                                 {
                                     selectedDrug.Count = selectedDrug.Count - buyEliminateCount;
                                     CurTransactionId++;
-                                    TransactionsList.Add(new(CurTransactionId, selectedDrug.Name, buyEliminateCount, Math.Round(-(selectedDrug.Price*buyEliminateCount),2), "Списание"));
+                                    TransactionsList.Add(new(CurTransactionId, selectedDrug.Name, buyEliminateCount, Math.Round(-(selectedDrug.Buyprice*buyEliminateCount),2), "Списание"));
                                 }
                                 
                             }
