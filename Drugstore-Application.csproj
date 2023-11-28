@@ -10,7 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Services\" />
+    <PackageReference Include="PasswordBoxMVVM" Version="1.0.5" />
   </ItemGroup>
 
 </Project>

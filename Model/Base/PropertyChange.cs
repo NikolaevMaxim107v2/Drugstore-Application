@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Drugstore_Application.Model.Base
 {
-    public class PropertyChange : INotifyPropertyChanged, IDisposable
+    public class PropertyChange : INotifyPropertyChanged
     {
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -17,8 +17,6 @@ namespace Drugstore_Application.Model.Base
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-
-        public virtual void Dispose() { }
     }
 
 }

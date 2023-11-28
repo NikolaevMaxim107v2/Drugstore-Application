@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace Drugstore_Application.ViewModel
@@ -28,13 +29,13 @@ namespace Drugstore_Application.ViewModel
                 {
                     if ((login == "admin") && (password == "admin"))
                     {
+                        MessageBox.Show($"Здравствуйте, {login}! Для перехода далее нажмите 'ОК'", "Добро пожаловать!", MessageBoxButton.OK, MessageBoxImage.Information);
                         NavigateToMainPageCommand.Execute(true);
                     }
                     else
                     {
                         ErrorBox.LogInError();
                     }
-
                 }));
             }
         }
@@ -43,7 +44,7 @@ namespace Drugstore_Application.ViewModel
         {
             login = "Логин";
             password = "Пароль";
-            NavigateToMainPageCommand = new NavigationCommand<MainPageVM>(navigationStore, () => new MainPageVM());
+            NavigateToMainPageCommand = new NavigationCommand<MainPageVM>(navigationStore, () => new MainPageVM(navigationStore));
         }
     }
 }

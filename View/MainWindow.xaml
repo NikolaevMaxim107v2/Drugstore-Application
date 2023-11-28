@@ -7,9 +7,12 @@
         xmlns:viewmodels="clr-namespace:Drugstore_Application.ViewModel"
         xmlns:views="clr-namespace:Drugstore_Application.View"
         mc:Ignorable="d"
-        Title="Электронная система 'Целитель'" WindowStartupLocation="CenterScreen" MinHeight="750" MinWidth="900" MaxHeight="750" MaxWidth="900">
-    <ContentControl Content="{Binding CurrentViewModel}">
-        <ContentControl.Resources>
+        Title="Электронная система 'Целитель'" WindowStartupLocation="CenterScreen" 
+        MinHeight="750" MinWidth="900" 
+        MaxHeight="750" MaxWidth="900"
+        Height="750" Width="900">
+    <Grid>
+        <Grid.Resources>
             <DataTemplate DataType="{x:Type viewmodels:StartPageVM}">
                 <views:StartPage/>
             </DataTemplate>
@@ -19,6 +22,7 @@
             <DataTemplate DataType="{x:Type viewmodels:MainPageVM}">
                 <views:MainPage/>
             </DataTemplate>
-        </ContentControl.Resources>
-    </ContentControl>
+        </Grid.Resources>
+        <ContentControl Content="{Binding CurrentViewModel}"/>
+    </Grid>
 </Window>

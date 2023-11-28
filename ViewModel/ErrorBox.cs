@@ -41,13 +41,15 @@ namespace Drugstore_Application.ViewModel
         {
             MessageBox.Show("В поля 'Цена' и(или) 'Количество' было(-и) введено(-ы) отрицательное(-ые) значение(-ия), пожалуйста, вводите только положительные значения!", "Ошибка введённых данных", MessageBoxButton.OK, MessageBoxImage.Warning);
         }
+
         public static void NameError()
         {
             MessageBox.Show("Введите название!", "Ошибка введённых данных", MessageBoxButton.OK, MessageBoxImage.Warning);
         }
+
         public static void MoneyError()
         {
-            MessageBox.Show("На балансе недостаточно средств для покупки!", "Ошибка покупки", MessageBoxButton.OK, MessageBoxImage.Error);
+            MessageBox.Show("На балансе недостаточно средств для покупки!", "Ошибка покупки", MessageBoxButton.OK, MessageBoxImage.Warning);
         }
     }
 }
