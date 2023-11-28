@@ -26,7 +26,7 @@
 
         <!--Заливка ячеек-->
         <Border Grid.Row ="0" Grid.ColumnSpan="3" BorderThickness="3px" BorderBrush="#4B0082" Margin="2px 2px 5px 2px" Background="#ca9aec"/>
-        <Border Grid.Row ="0" Grid.Column="3" Grid.ColumnSpan="2" BorderThickness="3px" BorderBrush="#4B0082" Margin="5px 5px 5px 5px" Background="#ca9aec"/>
+        <Border Grid.Row ="0" Grid.Column="3" Grid.ColumnSpan="3" BorderThickness="3px" BorderBrush="#4B0082" Margin="5px 5px 5px 5px" Background="#ca9aec"/>
         <Border Grid.Row ="2" Grid.ColumnSpan="6" Grid.RowSpan="2" BorderThickness="3px" BorderBrush="#4B0082" Margin="2px 2px 2px 2px" Background="#ca9aec"/>
         <Border Grid.Row ="1" Grid.Column="0" Grid.ColumnSpan="3" BorderThickness="3px" BorderBrush="#4B0082" Margin="2px 2px 2px 2px" Background="#ca9aec"/>
         <Border Grid.Row ="1" Grid.Column="3" Grid.ColumnSpan="3" BorderThickness="3px" BorderBrush="#4B0082" Margin="2px 2px 2px 2px" Background="#ca9aec"/>
@@ -98,8 +98,10 @@ ItemsSource="{Binding TransactionsList}">
         <Button Name="DeleteButton" Content="Удалить" FontSize="14px" Margin="15px 10px 15px 10px" Command="{Binding RemoveDrug}" Grid.Row="2" Grid.Column="1"></Button>
 
         <!--Кнопки списка транзакций-->
+        <Button Name="SellButton" Content="Продать" FontSize="14px" Margin="10px 10px 10px 10px" Command="{Binding SellDrug}" Grid.Row="2" Grid.Column="3"></Button>
         <Button Name="BuyButton" Content="Купить" FontSize="14px" Margin="10px 10px 10px 10px" Command="{Binding BuyDrug}" Grid.Row="2" Grid.Column="4"></Button>
         <Button Name="EliminatingButton" Content="Списать" FontSize="14px" Margin="10px 10px 10px 10px" Command="{Binding EliminateDrug}" Grid.Row="2" Grid.Column="5"></Button>
+        
         <Expander Header="Поле для ввода количества списания/закупки" Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="2" Margin="10px 5px 10px 5px">
             <StackPanel >
                 <Label HorizontalAlignment="Center" Content="Введите количество"/>
@@ -108,9 +110,9 @@ ItemsSource="{Binding TransactionsList}">
         </Expander>
 
         <!--Баланс-->
-        <Label Grid.Column="3" FontSize="14px" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0px 0px 25px 0px">Баланс (рублей):</Label>
-        <TextBox Grid.Column="3" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="110px 0px 0px 0px" 
-         Height="40px" Width="165px"
+        <Label Grid.Column="3" FontSize="14px" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10px 0px 25px 0px">Баланс (рублей):</Label>
+        <TextBox Grid.Column="3" Grid.ColumnSpan="3" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="110px 0px 0px 0px" 
+         Height="40px" Width="300px"
          TextAlignment="Center" IsReadOnly="True" TextWrapping="Wrap" FontSize="14px" Text="{Binding Balance, UpdateSourceTrigger=PropertyChanged}"/>
     </Grid>
 </UserControl>
