@@ -39,7 +39,6 @@ namespace Drugstore_Application.ViewModel
         //Публичные переменные
         public ObservableCollection<Drug> DrugsList { get; set; }
         public ObservableCollection<Transaction> TransactionsList { get; set; }
-        public List<string> TransactionTypes;
         public ICommand OpenWindowCommand { get; set; }
 
         public double balance = 50150;
