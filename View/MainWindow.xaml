@@ -4,7 +4,21 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Drugstore_Application"
+        xmlns:viewmodels="clr-namespace:Drugstore_Application.ViewModel"
+        xmlns:views="clr-namespace:Drugstore_Application.View"
         mc:Ignorable="d"
         Title="Электронная система 'Целитель'" WindowStartupLocation="CenterScreen" MinHeight="750" MinWidth="900" MaxHeight="750" MaxWidth="900">
-    <ContentControl Content="{Binding CurrentViewModel}"/>
+    <ContentControl Content="{Binding CurrentViewModel}">
+        <ContentControl.Resources>
+            <DataTemplate DataType="{x:Type viewmodels:StartPageVM}">
+                <views:StartPage/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewmodels:LogInPageVM}">
+                <views:LoginPage/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewmodels:MainPageVM}">
+                <views:MainPage/>
+            </DataTemplate>
+        </ContentControl.Resources>
+    </ContentControl>
 </Window>

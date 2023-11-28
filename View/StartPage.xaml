@@ -1,0 +1,15 @@
+﻿<UserControl x:Class="Drugstore_Application.View.StartPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Drugstore_Application.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="250" d:DesignWidth="400">
+    <Grid>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock TextAlignment="Center" FontSize="18px" Text="Добро пожаловать!&#10;Пожалуйста, пройдите авторизацию"/>
+            <Button Height="30px" Width="120px" Margin="0px 15px 0px 0px" FontSize="14px" Content="Авторизация" Command="{Binding NavigateToLoginPageCommand}"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

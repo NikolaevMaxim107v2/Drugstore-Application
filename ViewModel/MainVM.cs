@@ -1,5 +1,6 @@
 ﻿using Drugstore_Application.Model;
 using Drugstore_Application.Model.Base;
+using Drugstore_Application.Stores;
 using Drugstore_Application.View;
 using Drugstore_Application.ViewModel;
 using System;
@@ -17,11 +18,19 @@ namespace Drugstore_Application.ViewModel
 {
     public class MainVM : PropertyChange
     {
-        public PropertyChange CurrentViewModel { get; }
+        private readonly NavigationStore _navigationStore;
 
-        public MainVM()
+        public PropertyChange CurrentViewModel => _navigationStore.CurrentViewModel;
+
+        public MainVM(NavigationStore navigationStore)
         {
-            //CurrentViewModel = new MainPageVM();
+            _navigationStore = navigationStore;
+            _navigationStore.CurrentViewModelChanged += OnCurrentViewModelChanged;
+        }
+
+        private void OnCurrentViewModelChanged()
+        {
+            OnPropertyChanged(nameof(CurrentViewModel));
         }
     }
 }

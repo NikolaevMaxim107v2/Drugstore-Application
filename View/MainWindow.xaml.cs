@@ -9,6 +9,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Drugstore_Application.Model;
+using Drugstore_Application.Stores;
 using Drugstore_Application.ViewModel;
 
 namespace Drugstore_Application
@@ -18,6 +19,9 @@ namespace Drugstore_Application
         public MainWindow()
         {
             InitializeComponent();
+            NavigationStore navigationStore = new NavigationStore();
+            navigationStore.CurrentViewModel = new StartPageVM(navigationStore);
+            DataContext = new MainVM(navigationStore);
         }
     }
 }

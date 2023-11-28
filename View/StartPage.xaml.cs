@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Drugstore_Application.View
 {
     /// <summary>
-    /// Логика взаимодействия для LoginPage.xaml
+    /// Логика взаимодействия для StartPage.xaml
     /// </summary>
-    public partial class LoginPage : UserControl
+    public partial class StartPage : UserControl
     {
-        public LoginPage()
+        public StartPage()
         {
             InitializeComponent();
         }

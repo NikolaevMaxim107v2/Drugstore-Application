@@ -15,7 +15,10 @@ using System.Windows.Shapes;
 
 namespace Drugstore_Application.View
 {
-    public partial class SellPage : Page
+    /// <summary>
+    /// Логика взаимодействия для SellPage.xaml
+    /// </summary>
+    public partial class SellPage : UserControl
     {
         public SellPage()
         {
