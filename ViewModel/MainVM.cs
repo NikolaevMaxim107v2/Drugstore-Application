@@ -20,18 +20,45 @@ namespace Drugstore_Application.ViewModel
     public class MainVM : PropertyChange
     {
         private readonly NavigationStore _navigationStore;
+        private readonly DrugsListStore _drugsListStore;
+        private readonly TransactionsListStore _transactionsListStore;
+        private readonly BalanceStore _balanceStore;
 
         public PropertyChange CurrentViewModel => _navigationStore.CurrentViewModel;
+        public ObservableCollection<Drug> DrugsList => _drugsListStore.DrugsList;
+        public ObservableCollection<TransactionDS> TransactionsList => _transactionsListStore.TransactionsList;
+        public double Balance => _balanceStore.Balance;
 
-        public MainVM(NavigationStore navigationStore)
+        public MainVM(NavigationStore navigationStore, DrugsListStore drugsListStore, TransactionsListStore transactionsListStore, BalanceStore balanceStore)
         {
             _navigationStore = navigationStore;
+            _drugsListStore = drugsListStore;
+            _transactionsListStore = transactionsListStore;
+            _balanceStore = balanceStore;
+            _balanceStore.BalanceChanged += OnBalanceChanged;
+            _drugsListStore.DrugsListChanged += OnDrugsListChanged;
+            _transactionsListStore.TransactionsListChanged += OnTransactionsListChanged;
             _navigationStore.CurrentViewModelChanged += OnCurrentViewModelChanged;
         }
 
         private void OnCurrentViewModelChanged()
         {
             OnPropertyChanged(nameof(CurrentViewModel));
+        }
+
+        private void OnDrugsListChanged()
+        {
+            OnPropertyChanged(nameof(DrugsList));
+        }
+
+        private void OnTransactionsListChanged()
+        {
+            OnPropertyChanged(nameof(TransactionsList));
+        }
+
+        private void OnBalanceChanged()
+        {
+            OnPropertyChanged(nameof(Balance));
         }
     }
 }

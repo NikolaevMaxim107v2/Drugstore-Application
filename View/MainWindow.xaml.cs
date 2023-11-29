@@ -20,8 +20,11 @@ namespace Drugstore_Application
         {
             InitializeComponent();
             NavigationStore navigationStore = new NavigationStore();
-            navigationStore.CurrentViewModel = new StartPageVM(navigationStore);
-            DataContext = new MainVM(navigationStore);
+            DrugsListStore drugsListStore = new DrugsListStore();
+            TransactionsListStore transactionsListStore = new TransactionsListStore();
+            BalanceStore balanceStore = new BalanceStore();
+            navigationStore.CurrentViewModel = new StartPageVM(navigationStore, drugsListStore, transactionsListStore, balanceStore);
+            DataContext = new MainVM(navigationStore, drugsListStore, transactionsListStore, balanceStore);
         }
     }
 }

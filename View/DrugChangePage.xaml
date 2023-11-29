@@ -1,0 +1,69 @@
+﻿<UserControl x:Class="Drugstore_Application.View.DrugChangePage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Drugstore_Application.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="750" d:DesignWidth="900">
+    <Grid>
+        <!--Определение строк и столбцов-->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="0.65*"/>
+        </Grid.RowDefinitions>
+
+        <!--Заливка ячеек-->
+        <Border Grid.Row ="0" Grid.ColumnSpan="3" BorderThickness="3px" BorderBrush="#4B0082" Margin="2px 2px 5px 2px" Background="#ca9aec"/>
+        <Border Grid.Row ="1" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="2" BorderThickness="3px" BorderBrush="#4B0082" Margin="2px 2px 2px 2px" Background="#ca9aec"/>
+        <Border Grid.Row ="0" Grid.Column="3" Grid.ColumnSpan="3" Grid.RowSpan="3" BorderThickness="3px" BorderBrush="#4B0082" Margin="2px 2px 2px 2px" Background="#ca9aec"/>
+        <Border Grid.Row ="3" Grid.ColumnSpan="6" BorderThickness="3px" BorderBrush="#4B0082" Margin="2px 2px 2px 2px" Background="#ca9aec"/>
+
+        <!--Поле поиска медикаментов-->
+        <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Margin="0px 5px 0px 0px" VerticalAlignment="Center">
+            <Label Grid.Column="0" Grid.Row="0" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center">Поиск медикаментов</Label>
+            <TextBox Margin="15px 0px 15px 0px" Text="{Binding TextSearchDrug, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+        </StackPanel>
+
+        <!--Списки-->
+        <ListView Name="DrugsListView" Grid.Column="0" Grid.Row="1" Margin="10px 10px 10px 10px" Grid.ColumnSpan="3" Grid.RowSpan="2"
+        ItemsSource="{Binding FoundDrugs, UpdateSourceTrigger=PropertyChanged}"
+        SelectedItem="{Binding SelectedDrug}">
+            <ListView.View>
+                <GridView AllowsColumnReorder="False">
+                    <GridViewColumn Header="ID" Width="30px" DisplayMemberBinding="{Binding Path=Id, UpdateSourceTrigger=PropertyChanged}"/>
+                    <GridViewColumn Header="Название" Width="100px" DisplayMemberBinding="{Binding Path=Name, UpdateSourceTrigger=PropertyChanged}"/>
+                    <GridViewColumn Header="Симптомы" Width="90px" DisplayMemberBinding="{Binding Path=Symptoms, UpdateSourceTrigger=PropertyChanged}"/>
+                    <GridViewColumn Header="Количество, штук" Width="105px" DisplayMemberBinding="{Binding Path=Count, UpdateSourceTrigger=PropertyChanged}"/>
+                    <GridViewColumn Header="Цена, рублей" Width="80px" DisplayMemberBinding="{Binding Path=Price, UpdateSourceTrigger=PropertyChanged}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <Button Name="EliminatingButton" Content="Вернуться в окно склада" FontSize="14px" Grid.ColumnSpan="6" Margin="10px 10px 10px 10px" Command="{Binding BackToMain}" Grid.Row="3" Grid.Column="0"></Button>
+
+        <StackPanel Grid.Column="3" Grid.Row="0" Grid.ColumnSpan="3" Grid.RowSpan="3" VerticalAlignment="Center">
+            <Label FontSize="18px" HorizontalAlignment="Center" Margin="0px 20px 0px 0px">Окно изменения</Label>
+            <Label FontSize="14px" HorizontalAlignment="Center" Margin="0px 0px 0px 0px">(Выберете медикамент из списка)</Label>
+            <Label FontSize="18px" HorizontalAlignment="Center" Margin="0px 20px 0px 0px">Название</Label>
+            <TextBox Margin="15px 0px 15px 0px" Width="350px" Height="25px" Text="{Binding SelectedDrug.Name, UpdateSourceTrigger=PropertyChanged}"/>
+            <Label FontSize="18px" HorizontalAlignment="Center" Margin="0px 0px 0px 0px">Симптомы</Label>
+            <TextBox Margin="15px 0px 15px 0px" Width="350px" Height="25px" Text="{Binding SelectedDrug.Symptoms, UpdateSourceTrigger=PropertyChanged}"/>
+            <Label FontSize="18px" HorizontalAlignment="Center" Margin="0px 0px 0px 0px">Цена закупки</Label>
+            <TextBox Margin="15px 0px 15px 0px" Width="350px" Height="25px" Text="{Binding SelectedDrug.Buyprice, UpdateSourceTrigger=PropertyChanged}"/>
+            <Label FontSize="18px" HorizontalAlignment="Center" Margin="0px 0px 0px 0px">Цена продажи</Label>
+            <TextBox Margin="15px 0px 15px 0px" Width="350px" Height="25px" Text="{Binding SelectedDrug.Price, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+        </StackPanel>
+    </Grid>
+</UserControl>

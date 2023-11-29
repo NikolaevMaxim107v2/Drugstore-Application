@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Drugstore_Application.Model.Base
 {
-    public class Transaction : PropertyChange
+    public class TransactionDS : PropertyChange
     {
         private int _id;
         private string _name;
@@ -14,7 +14,7 @@ namespace Drugstore_Application.Model.Base
         private double _price;
         private string _type;
 
-        public Transaction(int id, string name, int count, double price, string type)
+        public TransactionDS(int id, string name, int count, double price, string type)
         {
             Id = id;
             Name = name;

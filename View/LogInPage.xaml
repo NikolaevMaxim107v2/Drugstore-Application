@@ -29,7 +29,7 @@
             <TextBlock FontSize="18px" TextAlignment="Center" Text="Авторизация&#10;(Логин: admin, пароль: admin)"/>
             <TextBox FontSize="18px" Text="{Binding Login}" Margin="5px 5px 5px 5px"/>
             <components:BindablePasswordBox FontSize="18px"  Password="{Binding Password}" Margin="5px 5px 5px 5px"/>
-            <Button FontSize="18px" Content="Войти" Height="30px"  Margin="5px 5px 5px 5px" Command="{Binding LogIn}"/>
+            <Button FontSize="18px" Content="Войти" Height="30px"  Margin="5px 5px 5px 5px" Command="{Binding LoginCommand}"/>
         </StackPanel>
     </Grid>
 </UserControl>

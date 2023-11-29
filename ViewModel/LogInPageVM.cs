@@ -15,36 +15,17 @@ namespace Drugstore_Application.ViewModel
     {
         private string login;
         private string password;
-        private RelayCommand logIn;
-        public ICommand NavigateToMainPageCommand { get; }
+        public ICommand LoginCommand { get; }
         public string Password { get => password; set { password = value; OnPropertyChanged(nameof(Password)); } }
         public string Login { get => login; set { login = value; OnPropertyChanged(nameof(Login)); } }
 
 
-        public RelayCommand LogIn
-        {
-            get
-            {
-                return logIn ?? (logIn = new RelayCommand(obj =>
-                {
-                    if ((login == "admin") && (password == "admin"))
-                    {
-                        MessageBox.Show($"Здравствуйте, {login}! Для перехода далее нажмите 'ОК'", "Добро пожаловать!", MessageBoxButton.OK, MessageBoxImage.Information);
-                        NavigateToMainPageCommand.Execute(true);
-                    }
-                    else
-                    {
-                        ErrorBox.LogInError();
-                    }
-                }));
-            }
-        }
 
-        public LogInPageVM(NavigationStore navigationStore) 
+        public LogInPageVM(NavigationStore navigationStore, DrugsListStore drugsListStore, TransactionsListStore transactionsListStore, BalanceStore balanceStore) 
         {
             login = "Логин";
             password = "Пароль";
-            NavigateToMainPageCommand = new NavigationCommand<MainPageVM>(navigationStore, () => new MainPageVM(navigationStore));
+            LoginCommand = new LoginCommand(this,navigationStore,drugsListStore, transactionsListStore, balanceStore);
         }
     }
 }

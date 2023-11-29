@@ -22,6 +22,18 @@
             <DataTemplate DataType="{x:Type viewmodels:MainPageVM}">
                 <views:MainPage/>
             </DataTemplate>
+            <DataTemplate DataType="{x:Type viewmodels:DrugAddPageVM}">
+                <views:DrugAddPage/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewmodels:DrugSellPageVM}">
+                <views:DrugSellPage/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewmodels:DrugChangePageVM}">
+                <views:DrugChangePage/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewmodels:DrugBuyEliminatePageVM}">
+                <views:DrugBuyEliminatePage/>
+            </DataTemplate>
         </Grid.Resources>
         <ContentControl Content="{Binding CurrentViewModel}"/>
     </Grid>

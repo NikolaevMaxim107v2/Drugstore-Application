@@ -14,9 +14,9 @@ namespace Drugstore_Application.ViewModel
     {
         public ICommand NavigateToLoginPageCommand { get; }
 
-        public StartPageVM(NavigationStore navigationStore)
+        public StartPageVM(NavigationStore navigationStore, DrugsListStore drugsListStore, TransactionsListStore transactionsListStore, BalanceStore balanceStore)
         {
-            NavigateToLoginPageCommand = new NavigationCommand<LogInPageVM>(navigationStore, () => new LogInPageVM(navigationStore));
+            NavigateToLoginPageCommand = new NavigationCommand<LogInPageVM>(navigationStore, () => new LogInPageVM(navigationStore, drugsListStore, transactionsListStore, balanceStore));
         }
 
     }

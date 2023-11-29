@@ -28,6 +28,11 @@ namespace Drugstore_Application.ViewModel
             MessageBox.Show("Введите корректное количество списываемых медикаментов!", "Ошибка количетсва", MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
+        public static void SellDrugCountError()
+        {
+            MessageBox.Show("Введите корректное количество продаваемых медикаментов!", "Ошибка количетсва", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+
         public static void LogInError()
         {
             MessageBox.Show("Логин или пароль введены неверно, перепроверьте вводимые данные!", "Ошибка авторизации", MessageBoxButton.OK, MessageBoxImage.Error);
