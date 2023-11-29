@@ -78,7 +78,7 @@
 
         <StackPanel Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="3" VerticalAlignment="Top">
             <Label FontSize="24px" HorizontalAlignment="Center" Margin="0px 20px 0px 0px">Закупка</Label>
-            <Label FontSize="14px" HorizontalAlignment="Center" Margin="0px 0px 0px 0px">(Выберете медикамент из списка)</Label>
+            <Label FontSize="14px" HorizontalAlignment="Center" Margin="0px 0px 0px 0px">(Выберете медикамент из верхнего списка)</Label>
             <Label FontSize="18px" HorizontalAlignment="Center" Margin="0px 20px 0px 0px">Введите количество</Label>
             <TextBox Margin="15px 0px 15px 0px" Width="350px" Height="25px" Text="{Binding BuyCount, UpdateSourceTrigger=PropertyChanged}"></TextBox>
             <Button Name="BuyButton" Content="Купить" VerticalAlignment="Bottom" FontSize="14px" Height="30px" Margin="50px 10px 50px 30px" Command="{Binding DrugBuy}"/>
@@ -86,7 +86,7 @@
 
         <StackPanel Grid.Column="3" Grid.Row="2" Grid.ColumnSpan="3" VerticalAlignment="Top">
             <Label FontSize="24px" HorizontalAlignment="Center" Margin="0px 20px 0px 0px">Списание</Label>
-            <Label FontSize="14px" HorizontalAlignment="Center" Margin="0px 0px 0px 0px">(Выберете медикамент из списка)</Label>
+            <Label FontSize="14px" HorizontalAlignment="Center" Margin="0px 0px 0px 0px">(Выберете медикамент из верхнего списка)</Label>
             <Label FontSize="18px" HorizontalAlignment="Center" Margin="0px 20px 0px 0px">Введите количество</Label>
             <TextBox Margin="15px 0px 15px 0px" Width="350px" Height="25px" Text="{Binding EliminateCount, UpdateSourceTrigger=PropertyChanged}"></TextBox>
             <Button Name="EliminateButton" Content="Списать" VerticalAlignment="Bottom" FontSize="14px" Height="30px" Margin="50px 10px 50px 30px" Command="{Binding DrugEliminate}"/>

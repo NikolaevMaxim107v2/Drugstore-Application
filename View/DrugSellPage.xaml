@@ -71,7 +71,7 @@
 
         <StackPanel Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="2" VerticalAlignment="Center">
             <Label FontSize="18px" HorizontalAlignment="Center" Margin="0px 20px 0px 0px">Окно продажи</Label>
-            <Label FontSize="14px" HorizontalAlignment="Center" Margin="0px 0px 0px 0px">(Выберете медикамент из списка)</Label>
+            <Label FontSize="14px" HorizontalAlignment="Center" Margin="0px 0px 0px 0px">(Выберете медикамент из верхнего списка)</Label>
             <Label FontSize="18px" HorizontalAlignment="Center" Margin="0px 20px 0px 0px">Название</Label>
             <TextBox Margin="15px 0px 15px 0px" Width="350px" Height="25px" IsReadOnly="True" Text="{Binding SelectedDrug.Name, UpdateSourceTrigger=PropertyChanged}"/>
             <Label FontSize="18px" HorizontalAlignment="Center" Margin="0px 0px 0px 0px">Симптомы</Label>
