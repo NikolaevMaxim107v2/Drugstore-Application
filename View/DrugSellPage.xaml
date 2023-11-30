@@ -74,10 +74,10 @@
             <Label FontSize="14px" HorizontalAlignment="Center" Margin="0px 0px 0px 0px">(Выберете медикамент из верхнего списка)</Label>
             <Label FontSize="18px" HorizontalAlignment="Center" Margin="0px 20px 0px 0px">Название</Label>
             <TextBox Margin="15px 0px 15px 0px" Width="350px" Height="25px" IsReadOnly="True" Text="{Binding SelectedDrug.Name, UpdateSourceTrigger=PropertyChanged}"/>
-            <Label FontSize="18px" HorizontalAlignment="Center" Margin="0px 0px 0px 0px">Симптомы</Label>
-            <TextBox Margin="15px 0px 15px 0px" Width="350px" Height="25px" IsReadOnly="True" Text="{Binding SelectedDrug.Symptoms, UpdateSourceTrigger=PropertyChanged}"/>
             <Label FontSize="18px" HorizontalAlignment="Center" Margin="0px 0px 0px 0px">Цена продажи</Label>
             <TextBox Margin="15px 0px 15px 0px" Width="350px" Height="25px" IsReadOnly="True" Text="{Binding SelectedDrug.Price, UpdateSourceTrigger=PropertyChanged}"/>
+            <Label FontSize="18px" HorizontalAlignment="Center" Margin="0px 0px 0px 0px">Симптомы</Label>
+            <TextBox Margin="15px 0px 15px 0px" Width="350px" Height="100px" TextWrapping="Wrap" IsReadOnly="True" Text="{Binding SelectedDrug.Symptoms, UpdateSourceTrigger=PropertyChanged}"/>
             <Label FontSize="18px" HorizontalAlignment="Center" Margin="0px 0px 0px 0px">Продаваемое количество</Label>
             <TextBox Margin="15px 0px 15px 0px" Width="350px" Height="25px" Text="{Binding SellCount, UpdateSourceTrigger=PropertyChanged}"></TextBox>
             <Button Name="SellButton" Content="Продать" VerticalAlignment="Bottom" FontSize="14px" Height="40px" Margin="50px 35px 50px 30px" Command="{Binding DrugSell}"/>

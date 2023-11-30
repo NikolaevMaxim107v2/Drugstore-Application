@@ -14,31 +14,31 @@
             <ColumnDefinition Width="0.5*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="0.35*"/>
             <RowDefinition/>
-            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="0.35*"/>
         </Grid.RowDefinitions>
 
         <!--Заливка ячеек-->
         <Border Grid.Row ="1" Grid.Column="1"  BorderThickness="3px" BorderBrush="#4B0082" Margin="2px 2px 5px 2px" Background="#ca9aec"/>
 
         <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Center">
-            <TextBlock HorizontalAlignment="Center" Margin="2px 2px 2px 15px" FontSize="18px" Text="Окно добавления медикаментов"/>
+            <TextBlock HorizontalAlignment="Center" Margin="2px 15px 2px 15px" FontSize="18px" Text="Окно добавления медикаментов"/>
             
             <TextBlock HorizontalAlignment="Center" FontSize="14px" Text="Название"/>
             <TextBox Height="20px" Width="250px" Margin="0px 0px 0px 10px" Text="{Binding AddName, UpdateSourceTrigger=PropertyChanged}"/>
-            
-            <TextBlock HorizontalAlignment="Center" FontSize="14px" Text="Симптомы"/>
-            <TextBox Height="20px" Width="250px" Margin="0px 0px 0px 10px" Text="{Binding AddSymptoms, UpdateSourceTrigger=PropertyChanged}"/>
-            
+
             <TextBlock HorizontalAlignment="Center" FontSize="14px" Text="Количество"/>
             <TextBox Height="20px" Width="250px" Margin="0px 0px 0px 10px" Text="{Binding AddCount, UpdateSourceTrigger=PropertyChanged}"/>
-            
+
             <TextBlock HorizontalAlignment="Center" FontSize="14px" Text="Цена закупки"/>
             <TextBox Height="20px" Width="250px" Margin="0px 0px 0px 10px" Text="{Binding AddBuyprice, UpdateSourceTrigger=PropertyChanged}"/>
-            
+
             <TextBlock HorizontalAlignment="Center" FontSize="14px" Text="Цена продажи"/>
-            <TextBox Height="20px" Width="250px" Text="{Binding AddPrice, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBox Height="20px" Width="250px" Margin="0px 0px 0px 10px" Text="{Binding AddPrice, UpdateSourceTrigger=PropertyChanged}"/>
+
+            <TextBlock HorizontalAlignment="Center" FontSize="14px" Text="Симптомы"/>
+            <TextBox Height="100px" Width="350px" Margin="0px 0px 0px 0px" TextWrapping="Wrap" Text="{Binding AddSymptoms, UpdateSourceTrigger=PropertyChanged}"/>
 
             <Grid>
                 <Button Content="Подтвердить" Width="110px" Height="25px"  Margin="10px 20px 150px 10px" Command="{Binding DrugAdd}"/>

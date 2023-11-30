@@ -58,12 +58,12 @@
             <Label FontSize="14px" HorizontalAlignment="Center" Margin="0px 0px 0px 0px">(Выберете медикамент из списка)</Label>
             <Label FontSize="18px" HorizontalAlignment="Center" Margin="0px 20px 0px 0px">Название</Label>
             <TextBox Margin="15px 0px 15px 0px" Width="350px" Height="25px" Text="{Binding SelectedDrug.Name, UpdateSourceTrigger=PropertyChanged}"/>
-            <Label FontSize="18px" HorizontalAlignment="Center" Margin="0px 0px 0px 0px">Симптомы</Label>
-            <TextBox Margin="15px 0px 15px 0px" Width="350px" Height="25px" Text="{Binding SelectedDrug.Symptoms, UpdateSourceTrigger=PropertyChanged}"/>
             <Label FontSize="18px" HorizontalAlignment="Center" Margin="0px 0px 0px 0px">Цена закупки</Label>
             <TextBox Margin="15px 0px 15px 0px" Width="350px" Height="25px" Text="{Binding SelectedDrug.Buyprice, UpdateSourceTrigger=PropertyChanged}"/>
             <Label FontSize="18px" HorizontalAlignment="Center" Margin="0px 0px 0px 0px">Цена продажи</Label>
             <TextBox Margin="15px 0px 15px 0px" Width="350px" Height="25px" Text="{Binding SelectedDrug.Price, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+            <Label FontSize="18px" HorizontalAlignment="Center" Margin="0px 0px 0px 0px">Симптомы</Label>
+            <TextBox Margin="15px 0px 15px 0px" Width="350px" Height="100px" TextWrapping="Wrap" Text="{Binding SelectedDrug.Symptoms, UpdateSourceTrigger=PropertyChanged}"/>
         </StackPanel>
     </Grid>
 </UserControl>
